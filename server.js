@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended:true}))
  
  
 // POST sign_up ,must not contain username or email 
-app.post('/sign_up',async (req,res)=>{ 
+app.post('/api/sign_up',async (req,res)=>{ 
     const { name, email, password } = req.body 
     try{ 
         if(name==="" || name === null || name ===undefined) 
@@ -48,7 +48,7 @@ app.post('/sign_up',async (req,res)=>{
 }) 
  
 // POST sign_in 
-app.post('/sign_in',async (req,res)=>{ 
+app.post('/api/sign_in',async (req,res)=>{ 
     const { email, password } = req.body 
     try{ 
         let emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ 
@@ -80,7 +80,7 @@ app.post('/sign_in',async (req,res)=>{
 }) 
  
 // POST clean 
-app.post('/clean',async (req,res)=>{ 
+app.post('/api/clean',async (req,res)=>{ 
     try{ 
         fs.writeFile('./db.JSON',"",(err,)=>{ 
             if(err) 
